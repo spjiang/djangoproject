@@ -12,5 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangoProject.settings')
+# 设置默认端口为8000
+os.environ.setdefault("DJANGO_PORT", "8888")
 
 application = get_wsgi_application()

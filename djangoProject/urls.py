@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
+from django.contrib import admin  # 导入对象
 from django.urls import path
+from django.urls import re_path as url, include  # 新版使用 re_path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^myblog/', include('myblog.urls')),  # 引号表示传递字符串，匹配应用中的url
+    url(r'^admin/', admin.site.urls),  # 不用引号，表示传递对象，要确保已经导入该对象。
 ]
